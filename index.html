@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="p5.riso.js"></script>
+  <script src="p5.js"></script>
+  <script src="events.js"></script>
+  <script src="shapes.js"></script>
+  <script src="sketch.js"></script>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <header class="sticky-header">
+<img src="assets/obscura-logo.png" alt="Riso Obscura Photobooth Logo" class = "header-logo">
+  </header> 
+  <div class ="wrapper">
+    <div class="container">
+      <div class="canvas-container">
+        <div id="canvas-holder"></div>
+          <div class="export-buttons">
+            <div class="export-button-columns">
+            <button id="exportButton">Export all channels</button>
+            <button id="downloadCanvasButton">Export color preview</button>
+          </div>
+        </div>
+      </div>
+      <div class="controls">
+        <h2>Capture yourself in 3 color channels ready for Riso printing!</h2>
+        <p>Riso Obscura Photobooth allows you to map Riso colors to your CMYK channels directly from your webcam. You can also add a border and a text to the final image to export them as greyscale .png files for Risograph printing.
+        </p>
+        <div class="controls-all-column">
+          <div class="controls-column">
+            <label for="firstColorDropdown">Choose a color for the (M) channel:</label>
+            <select id="firstColorDropdown">
+              <option value="#ff48b0">Riso Fluorescent Pink</option>
+              <option value="#44d62c">Riso Fluorescent Green</option>
+              <option value="#f7ff00">Riso Fluorescent Yellow</option>
+              <option value="#ffe800">Riso Yellow</option>
+              <option value="#ff6c2f">Riso Orange</option>
+              <option value="#ff665e">Riso Red</option>
+              <option value="#5ec8e5">Riso Aqua</option>
+              <option value="#0078bf">Riso Blue</option> 
+              <option value="#000000">Riso Black</option>
+            </select>
+            <br>
+            <label for="secondColorDropdown">Choose a color for the (Y) channel:</label>
+            <select id="secondColorDropdown">
+              <option value="#ffe800">Riso Yellow</option>
+              <option value="#ff6c2f">Riso Orange</option>
+              <option value="#ff665e">Riso Red</option>
+              <option value="#5ec8e5">Riso Aqua</option>
+              <option value="#0078bf">Riso Blue</option> 
+              <option value="#000000">Riso Black</option>
+              <option value="#ff48b0">Riso Fluorescent Pink</option>
+              <option value="#44d62c">Riso Fluorescent Green</option>
+              <option value="#f7ff00">Riso Fluorescent Yellow</option>
+            </select>
+            <br>
+            <label for="thirdColorDropdown">Choose a color for the (C)&(K) channel:</label>
+            <select id="thirdColorDropdown">
+              <option value="#5ec8e5">Riso Aqua</option>
+              <option value="#0078bf">Riso Blue</option> 
+              <option value="#ffe800">Riso Yellow</option>
+              <option value="#ff6c2f">Riso Orange</option>
+              <option value="#ff665e">Riso Red</option>
+              <option value="#000000">Riso Black</option>
+              <option value="#ff48b0">Riso Fluorescent Pink</option>
+              <option value="#44d62c">Riso Fluorescent Green</option>
+              <option value="#f7ff00">Riso Fluorescent Yellow</option>
+            </select>
+          </div>
+          <div class="controls-column">
+            <label for="borderSelector">Choose a border:</label>
+            <select id="borderSelector">
+              <option value="none">None</option>
+              <option value="star">Star</option>
+              <option value="dots">Dot</option>
+              <option value="flowers">Flowers</option>
+              <option value="hearts">Hearts</option>
+              <option value="mix-star-flowers">Star + Flowers</option>
+              <option value="mix-hearts-dots">Hearts + Dots</option>
+            </select>
+            <br>
+            <label for ="textSelector">Choose a text:</label>
+            <select id="textSelector">
+              <option value="none">None</option>
+              <option value="smile">Smile!</option>
+              <option value="sorry">Sorry...</option>
+              <option value="happy-birthday">Happy Birthday!</option>
+              <option value="thank-you">Thank You!</option>
+              <option value="cute">(˶˃ ᵕ ˂˶) .ᐟ.ᐟ</option>
+              <option value="love">୧ ‧₊˚ 🍮 ⋅ ☆</option>
+              <option value="rabbit">₍ᐢ.  ̫.ᐢ₎</option>
+            </select>
+            <br>
+            <label for="firstColorSlider">(M) Channel Threshold:</label>
+            <input type="range" id="firstColorSlider" min="0" max="255" value="120">
+            <br>
+            <label for="secondColorSlider">(Y) Channel Threshold:</label>
+            <input type="range" id="secondColorSlider" min="0" max="255" value="180">
+            <br>
+          </div>
+          <div class="controls-column">
+
+            <label for "exportPinkChannelButton">Individual export:</label>
+            <button id="exportPinkChannelButton">Export only (M) Channel</button>
+            <br>
+            <button id="exportYellowChannelButton">Export only (Y) Channel</button>
+            <br>
+            <button id="exportBlueChannelButton">Export only (C) & (K) Channel</button>
+            <br>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <p>Created by <a href="https://www.instagram.com/iamtheangrysons/">@iamtheangrysons</a> with p5.js</p>
+  </footer>
+</body>
+
+
+</html>
