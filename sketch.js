@@ -7,7 +7,7 @@ let exportYellowChannelButton;
 let downloadCanvasButton;
 let borderSelector;
 let textSelector;
-let customFont;
+//let customFont;
 
 let firstColorSlider;
 let secondColorSlider;
