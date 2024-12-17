@@ -17,7 +17,7 @@ let secondColorThreshold = 180;
 
 
 function preload(){
-  // customFont = loadFont('assets/VAGRB.ttf');
+  customFont = loadFont('VAGRB.ttf');
 }
 
 function setup() {
@@ -105,16 +105,16 @@ function draw() {
   let selectedText;
   if (textSelector.value() === 'smile') {
     selectedText = 'Smile!';
-    textFont('Arial');
+    textFont(customFont);
   } else if (textSelector.value() === 'sorry') {
     selectedText = 'Sorry...';
-    textFont('Arial');
+    textFont(customFont);
   } else if (textSelector.value() === 'happy-birthday') {
     selectedText = 'Happy Birthday!';
-    textFont('Arial');
+    textFont(customFont);
   } else if (textSelector.value() === 'thank-you') {
     selectedText = 'Thank You!';
-    textFont('Arial');
+    textFont(customFont);
   } else if (textSelector.value() === 'love') {
     selectedText = '୧ ‧₊˚ 🍮 ⋅ ☆';
     textFont('Arial');
@@ -291,16 +291,16 @@ function exportPinkChannel() {
   let selectedText;
   if (textSelector.value() === 'smile') {
     selectedText = 'Smile!';
-    pinkChannel.textFont('Arial');
+    pinkChannel.textFont(customFont);
   } else if (textSelector.value() === 'sorry') {
     selectedText = 'Sorry...';
     pinkChannel.textFont(customFont);
   } else if (textSelector.value() === 'happy-birthday') {
     selectedText = 'Happy Birthday!';
-    pinkChannel.textFont('Arial');
+    pinkChannel.textFont(customFont);
   } else if (textSelector.value() === 'thank-you') {
     selectedText = 'Thank You!';
-    pinkChannel.textFont('Arial');
+    pinkChannel.textFont(customFont);
   } else if (textSelector.value() === 'love') {
     selectedText = '୧ ‧₊˚ 🍮 ⋅ ☆';
     pinkChannel.textFont('Arial');
