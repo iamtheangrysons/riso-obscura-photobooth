@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -21,58 +25,19 @@
         <div id="canvas-holder"></div>
           <div class="export-buttons">
             <div class="export-button-columns">
-            <button id="exportButton">Export all channels</button>
-            <button id="downloadCanvasButton">Export color preview</button>
+  <!-- ///// -->
           </div>
         </div>
       </div>
       <div class="controls">
-        <h2>Capture yourself in 3 color channels ready for Riso printing!</h2>
-        <p>Riso Obscura Photobooth allows you to map Riso colors to your CMYK channels directly from your webcam. You can also add a border and a text to the final image to export them as greyscale .png files for Risograph printing.
+        <h2>Capture yourself in 3 color previews ready for Riso printing!</h2>
+        <p>Riso Obscura Photobooth allows you to map and preview Riso colors directly from your webcam. You can also add a border and a text to the final image to export them as greyscale .png files for Risograph printing.
         </p>
         <div class="controls-all-column">
           <div class="controls-column">
-            <label for="firstColorDropdown">Choose a color for the (M) channel:</label>
-            <select id="firstColorDropdown">
-              <option value="#ff48b0">Riso Fluorescent Pink</option>
-              <option value="#44d62c">Riso Fluorescent Green</option>
-              <option value="#f7ff00">Riso Fluorescent Yellow</option>
-              <option value="#ffe800">Riso Yellow</option>
-              <option value="#ff6c2f">Riso Orange</option>
-              <option value="#ff665e">Riso Red</option>
-              <option value="#5ec8e5">Riso Aqua</option>
-              <option value="#0078bf">Riso Blue</option> 
-              <option value="#000000">Riso Black</option>
-            </select>
-            <br>
-            <label for="secondColorDropdown">Choose a color for the (Y) channel:</label>
-            <select id="secondColorDropdown">
-              <option value="#ffe800">Riso Yellow</option>
-              <option value="#ff6c2f">Riso Orange</option>
-              <option value="#ff665e">Riso Red</option>
-              <option value="#5ec8e5">Riso Aqua</option>
-              <option value="#0078bf">Riso Blue</option> 
-              <option value="#000000">Riso Black</option>
-              <option value="#ff48b0">Riso Fluorescent Pink</option>
-              <option value="#44d62c">Riso Fluorescent Green</option>
-              <option value="#f7ff00">Riso Fluorescent Yellow</option>
-            </select>
-            <br>
-            <label for="thirdColorDropdown">Choose a color for the (C)&(K) channel:</label>
-            <select id="thirdColorDropdown">
-              <option value="#5ec8e5">Riso Aqua</option>
-              <option value="#0078bf">Riso Blue</option> 
-              <option value="#ffe800">Riso Yellow</option>
-              <option value="#ff6c2f">Riso Orange</option>
-              <option value="#ff665e">Riso Red</option>
-              <option value="#000000">Riso Black</option>
-              <option value="#ff48b0">Riso Fluorescent Pink</option>
-              <option value="#44d62c">Riso Fluorescent Green</option>
-              <option value="#f7ff00">Riso Fluorescent Yellow</option>
-            </select>
-          </div>
-          <div class="controls-column">
+            <div class="tooltip">
             <label for="borderSelector">Choose a border:</label>
+            </div>
             <select id="borderSelector">
               <option value="none">None</option>
               <option value="star">Star</option>
@@ -95,22 +60,78 @@
               <option value="rabbit">₍ᐢ.  ̫.ᐢ₎</option>
             </select>
             <br>
-            <label for="firstColorSlider">(M) Channel Threshold:</label>
+            <label for="firstColorSlider"> Color 1 Threshold:</label>
             <input type="range" id="firstColorSlider" min="0" max="255" value="120">
-            <br>
-            <label for="secondColorSlider">(Y) Channel Threshold:</label>
+            <label for="secondColorSlider">Color 2 Threshold:</label>
             <input type="range" id="secondColorSlider" min="0" max="255" value="180">
-            <br>
           </div>
           <div class="controls-column">
-
-            <label for "exportPinkChannelButton">Individual export:</label>
-            <button id="exportPinkChannelButton">Export only (M) Channel</button>
+            <div class="tooltip">
+            <label for="firstColorDropdown">Choose a Color 1 ⓘ:</label>
+            <span class="tooltiptext">Choose a first color, this is similar to changing the colors on the Magenta Channel in CMYK.</span>
+            </div>
+            <select id="firstColorDropdown">
+              <option value="#ff48b0">Riso Fluorescent Pink</option>
+              <option value="#44d62c">Riso Fluorescent Green</option>
+              <option value="#f7ff00">Riso Fluorescent Yellow</option>
+              <option value="#ffe800">Riso Yellow</option>
+              <option value="#ff6c2f">Riso Orange</option>
+              <option value="#ff665e">Riso Red</option>
+              <option value="#5ec8e5">Riso Aqua</option>
+              <option value="#0078bf">Riso Blue</option> 
+              <option value="#000000">Riso Black</option>
+            </select>
             <br>
-            <button id="exportYellowChannelButton">Export only (Y) Channel</button>
+            <div class="tooltip">
+            <label for="secondColorDropdown">Choose a Color 2 ⓘ:</label>
+            <span class="tooltiptext">Choose a second color, this is similar to changing the colors on the Yellow Channel in CMYK.</span>
+          </div>
+            <select id="secondColorDropdown">
+              <option value="#ffe800">Riso Yellow</option>
+              <option value="#ff6c2f">Riso Orange</option>
+              <option value="#ff665e">Riso Red</option>
+              <option value="#5ec8e5">Riso Aqua</option>
+              <option value="#0078bf">Riso Blue</option> 
+              <option value="#000000">Riso Black</option>
+              <option value="#ff48b0">Riso Fluorescent Pink</option>
+              <option value="#44d62c">Riso Fluorescent Green</option>
+              <option value="#f7ff00">Riso Fluorescent Yellow</option>
+            </select>
             <br>
-            <button id="exportBlueChannelButton">Export only (C) & (K) Channel</button>
+            <div class="tooltip">
+            <label for="thirdColorDropdown">Choose a Color 3 ⓘ:</label>
+            <span class="tooltiptext">Choose a third color, this is similar to changing the colors on the Cyan and Black Channel in CMYK.</span>
+          </div>
+            <select id="thirdColorDropdown">
+              <option value="#5ec8e5">Riso Aqua</option>
+              <option value="#0078bf">Riso Blue</option> 
+              <option value="#ffe800">Riso Yellow</option>
+              <option value="#ff6c2f">Riso Orange</option>
+              <option value="#ff665e">Riso Red</option>
+              <option value="#000000">Riso Black</option>
+              <option value="#ff48b0">Riso Fluorescent Pink</option>
+              <option value="#44d62c">Riso Fluorescent Green</option>
+              <option value="#f7ff00">Riso Fluorescent Yellow</option>
+            </select>
+          </div>
+          <div class="controls-column">
+            <div class="tooltip">
+              <label for="exportPinkChannelButton">Individual export ⓘ:</label>
+              <span class="tooltiptext">Export colors separately, suitable for mobile and tablets. Might cause delay if you move.</span>
+          </div>
+            <button id="exportPinkChannelButton">Export only Color 1</button>
             <br>
+            <button id="exportYellowChannelButton">Export only Color 2</button>
+            <br>
+            <button id="exportBlueChannelButton">Export only Color 3</button>
+            <br>
+            <div class="tooltip">
+            <label for "exportButton">Group export ⓘ:</label>
+            <span class="tooltiptext">Export all 3 colors at the same time.</span>
+          </div>
+            <button id="exportButton">Export all colors as for Riso printing</button>
+            <br>
+            <button id="downloadCanvasButton">Export digital color preview</button>
             
           </div>
         </div>
