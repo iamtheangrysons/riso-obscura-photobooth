@@ -7,10 +7,6 @@
   font-family: 'Apfel Grotezk';
   src: url('fonts/apfelgrotezk.ttf') format('truetype');
 }
-@font-face {
-  font-family: 'Apfel Grotezk';
-  src: url('fonts/apfelgrotezk.ttf') format('truetype');
-}
 
 header {
   width: 100%;
@@ -27,7 +23,9 @@ body {
   margin: 0;
   color: #001c64;
   padding: 20px;
-  font-family: 'Apfel Grotezk';
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
   background-image: url('assets/bg-placeholder.png'); /* Set the background image */
   background-size: cover;
   background-repeat: no-repeat;
@@ -85,6 +83,14 @@ h1 {
 h2{
   margin: 0;
   padding: 5px 0;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+
+}
+
+p{
+  font-size: 14px;
 }
 
 
@@ -98,6 +104,9 @@ h2{
   margin: 20px;
 }
 
+#mobile-export{
+  font-size: 9px;
+}
 
 select, input[type="range"] {
   width: 200px; 
@@ -107,8 +116,17 @@ select, input[type="range"] {
   padding: 0.3vw;
   /* border-radius: 20vw; */
   background: -webkit-linear-gradient(#ffffff, #ffdef1);
-  font-family: 'Apfel Grotezk';
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
   accent-color: #ff48b0
+}
+
+label{  font-family: "Space Mono", monospace;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 14px;
 }
 
 select:hover, input[type="range"]:hover {
@@ -129,7 +147,10 @@ button {
   padding: 0.3vw;
   /* border-radius: 20vw; */
   background: -webkit-linear-gradient(#ffffff, #ffdef1);
-  font-family: 'Apfel Grotezk';
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
 }
 
 button:hover{
@@ -139,7 +160,6 @@ button:hover{
 }
 
 .export-buttons {
-  font-family: 'Apfel Grotezk';
   margin-right: 20px;
   margin-left: 20px;
   margin-top: 20px;
@@ -157,4 +177,32 @@ footer{
   align-items: center; 
   mix-blend-mode: color-dodge;
   margin-left: 20px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 80px;
+  background-color: #5ec8e5;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 105%;
+  box-shadow: 0px 0px 10px 0px #5ec8e5;
+  font-size: 9px;
+  color: #ffffff;
+  transform: translateX(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  transform: translateX(0);
 }
