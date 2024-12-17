@@ -17,7 +17,7 @@ let secondColorThreshold = 180;
 
 
 function preload(){
-  customFont = loadFont('VAGRB.ttf');
+  customFont = loadFont('VAGRB.TTF');
 }
 
 function setup() {
