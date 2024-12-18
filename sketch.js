@@ -12,12 +12,11 @@ let customFont;
 let firstColorSlider;
 let secondColorSlider;
 let firstColorThreshold = 120; 
-let secondColorThreshold = 180;
-
+let secondColorThreshold = 180; 
 
 
 function preload(){
-  customFont = loadFont('VAGRB.TTF');
+  customFont = loadFont('assets/VAGRB.ttf');
 }
 
 function setup() {
@@ -42,7 +41,8 @@ function setup() {
   borderSelector = select('#borderSelector');
   //------ text selector -------
   textSelector = select('#textSelector');
-  //----- all 2 channel exports button -------
+    
+  //----- all 3 channel exports button -------
   const exportButton = select('#exportButton');
   exportButton.mousePressed(() => {
     console.log('Export button pressed');
@@ -71,8 +71,9 @@ function setup() {
     downloadCanvasButton = select('#downloadCanvasButton');
     downloadCanvasButton.mousePressed(() => {
       console.log('Download regular png button pressed');
-      saveCanvas(canvas, 'photobooth-preview', 'png');
+      saveCanvas(canvas, 'Color-Preview', 'png');
     });
+    
 }
 
 function draw() {
@@ -226,16 +227,16 @@ function exportChannels() {
   let selectedText;
   if (textSelector.value() === 'smile') {
     selectedText = 'Smile!';
-    pinkChannel.textFont('Arial');
+    pinkChannel.textFont(customFont);
   } else if (textSelector.value() === 'sorry') {
     selectedText = 'Sorry...';
-    pinkChannel.textFont('Arial');
+    pinkChannel.textFont(customFont);
   } else if (textSelector.value() === 'happy-birthday') {
     selectedText = 'Happy Birthday!';
-    pinkChannel.textFont('Arial');
+    pinkChannel.textFont(customFont);
   } else if (textSelector.value() === 'thank-you') {
     selectedText = 'Thank You!';
-    pinkChannel.textFont('Arial');
+    pinkChannel.textFont(customFont);
   } else if (textSelector.value() === 'love') {
     selectedText = '୧ ‧₊˚ 🍮 ⋅ ☆';
     pinkChannel.textFont('Arial');
@@ -257,9 +258,9 @@ function exportChannels() {
     pinkChannel.noStroke();
   }
   
-  pinkChannel.save('M-Channel.png');
-  yellowChannel.save('Y-Channel.png');
-  blueChannel.save('C-K-Channel.png');
+  pinkChannel.save('Color-1.png');
+  yellowChannel.save('Color-2.png');
+  blueChannel.save('Color-3.png');
 }
 
 //------ function to export pink channel only --------
@@ -320,7 +321,7 @@ function exportPinkChannel() {
     pinkChannel.text(selectedText, capture.width / 2, capture.height-40);
     pinkChannel.noStroke();
   }
-  pinkChannel.save('M-Channel.png');
+  pinkChannel.save('Color-1.png');
 }
 
 function exportYellowChannel() {
@@ -347,7 +348,7 @@ function exportYellowChannel() {
     }
   }
   
-  yellowChannel.save('Y-Channel.png');
+  yellowChannel.save('Color-2.png');
 }
 
 function exportBlueChannel() {
@@ -390,5 +391,5 @@ function exportBlueChannel() {
   }
   
   
-  blueChannel.save('C-K-Channel.png');
+  blueChannel.save('Color-3.png');
 }
