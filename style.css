@@ -19,6 +19,12 @@ header {
   height: auto;
 }
 
+.header-logo:hover{
+  scale: 1.1;
+  rotate: 5deg;
+  filter: hue-rotate(10deg);
+}
+
 body {
   margin: 0;
   color: #001c64;
@@ -26,7 +32,7 @@ body {
   font-family: "Space Mono", monospace;
   font-weight: 400;
   font-style: normal;
-  background-image: url('bg-placeholder.png'); /* Set the background image */
+  background-image: url('assets/bg-placeholder.png'); /* Set the background image */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -51,16 +57,29 @@ h1 {
   color: yellow;
 }
 
+#not-friendly {
+  font-style: italic;
+  color: #ff48b0;
+  font-size: 10px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  opacity: 0.4; /* Set low opacity */
+  pointer-events: none; /* Ensure it doesn't interfere with other elements */
+}
+
 .container {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
   padding: 20px;
+  border-color: #ff48b0;
+  border-style: dotted;
   border-radius: 20px;
   border-width: 5px;
-  background-color: #ffffff;
-  border-color: #ff48b0;
+  background-image: url('bg-white.gif'); 
+  background-size: cover;
 }
 
 .controls {
@@ -86,7 +105,7 @@ h2{
   font-family: "Space Mono", monospace;
   font-weight: 700;
   font-style: italic;
-
+  font-size: 20px;
 }
 
 p{
@@ -102,43 +121,62 @@ p{
 
 .canvas-container {
   margin: 20px;
+  padding-top: 30px;
+  align-content: center;
 }
 
 #mobile-export{
   font-size: 9px;
 }
 
-select, input[type="range"] {
-  width: 200px; 
+input[type="range"] {
+  width: 170px;
   max-width: 100%; 
   color: #001c64;
   border: 2px #ff48b0 solid;
   padding: 0.3vw;
-  /* border-radius: 20vw; */
-  background: -webkit-linear-gradient(#ffffff, #ffdef1);
   font-family: "Space Mono", monospace;
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
-  accent-color: #ff48b0
+  accent-color: #ff48b0;
 }
 
-label{  font-family: "Space Mono", monospace;
+select {
+  width: 190px; 
+  max-width: 100%; 
+  color: #001c64;
+  border: 2px #ff48b0 solid;
+  padding: 0.3vw;
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  accent-color: #ff48b0;
+
+}
+
+select:hover{
+  box-shadow: 0px 0px 10px 0px #f7ff00;
+}
+
+label{ 
+  font-family: "Space Mono", monospace;
   font-weight: 600;
   font-style: normal;
   font-size: 14px;
 }
 
 select:hover, input[type="range"]:hover {
-  background: -webkit-linear-gradient(#ffffff, #ff8ace);
   scale: 1.0;
-  accent-color: #ff48b0
+  color: #ffffff;
+  background-color: #ff48b0;
 }
 
 select:hover, input:hover [type="range"] {
-  background: -webkit-linear-gradient(#ffffff, #ff8ace);
   scale: 1.0;
-  accent-color: #ff48b0
+  color: #ffffff;
+  background-color: #ff48b0;
 }
 
 button {
@@ -146,17 +184,18 @@ button {
   border: 2px #ff48b0 solid;
   padding: 0.3vw;
   /* border-radius: 20vw; */
-  background: -webkit-linear-gradient(#ffffff, #ffdef1);
   font-family: "Space Mono", monospace;
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
+  background-color: #ffffff;
 }
 
 button:hover{
-  background: -webkit-linear-gradient(#ffffff, #ff8ace);
   scale: 1.0;
-  accent-color: #ff48b0
+  color: #ffffff;
+  background-color: #ff48b0;
+  box-shadow: 0px 0px 10px 0px #f7ff00;
 }
 
 .export-buttons {
@@ -186,7 +225,7 @@ footer{
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 80px;
+  width: 150px;
   background-color: #5ec8e5;
   text-align: center;
   border-radius: 5px;
@@ -194,9 +233,9 @@ footer{
   position: absolute;
   z-index: 1;
   top: -5px;
-  left: 105%;
-  box-shadow: 0px 0px 10px 0px #5ec8e5;
-  font-size: 9px;
+  left: 110%;
+  box-shadow: 0px 0px 10px 0px #f7ff00;
+  font-size: 10px;
   color: #ffffff;
   transform: translateX(-10px);
   transition: opacity 0.2s ease, transform 0.2s ease;
