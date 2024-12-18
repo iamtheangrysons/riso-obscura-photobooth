@@ -17,21 +17,18 @@
 </head>
 <body>
   <header class="sticky-header">
-<img src="obscura-logo.png" alt="Riso Obscura Photobooth Logo" class = "header-logo">
+<img src="assets/obscura-logo.png" alt="Riso Obscura Photobooth Logo" class = "header-logo">
   </header> 
   <div class ="wrapper">
     <div class="container">
       <div class="canvas-container">
         <div id="canvas-holder"></div>
-          <div class="export-buttons">
-            <div class="export-button-columns">
-  <!-- ///// -->
-          </div>
-        </div>
+        <br>
+        <div id="not-friendly">Not mobile friendly 	ʕノ•ᴥ•ʔノ ︵ ┻━┻</div>
       </div>
       <div class="controls">
         <h2>Capture yourself in 3 color previews ready for Riso printing!</h2>
-        <p>Riso Obscura Photobooth allows you to map and preview Riso colors directly from your webcam. You can also add a border and a text to the final image to export them as greyscale .png files for Risograph printing.
+        <p>Riso Obscura Photobooth allows you to map and preview Riso colors directly from your desktop webcam. You can also add a border and a text to the final image to export them as greyscale .png files for Risograph printing. Make sure you are in a well lit environment for best results.
         </p>
         <div class="controls-all-column">
           <div class="controls-column">
@@ -117,7 +114,7 @@
           <div class="controls-column">
             <div class="tooltip">
               <label for="exportPinkChannelButton">Individual export ⓘ:</label>
-              <span class="tooltiptext">Export colors separately, suitable for mobile and tablets. Might cause delay if you move.</span>
+              <span class="tooltiptext">Export colors in greyscale separately for Risograph printing, suitable for tablets. Might cause delay if you move.</span>
           </div>
             <button id="exportPinkChannelButton">Export only Color 1</button>
             <br>
@@ -126,13 +123,17 @@
             <button id="exportBlueChannelButton">Export only Color 3</button>
             <br>
             <div class="tooltip">
-            <label for "exportButton">Group export ⓘ:</label>
-            <span class="tooltiptext">Export all 3 colors at the same time.</span>
+            <label for "exportButton">Group export (recommended) ⓘ:</label>
+            <span class="tooltiptext"> ❗️Enable browser: "Allow multiple file downloads"
+              <br>Export all 3 colors in greyscale at the same time for Risograph printing.</span>
           </div>
-            <button id="exportButton">Export all colors as for Riso printing</button>
+            <button id="exportButton">Export all 3 colors</button>
             <br>
-            <button id="downloadCanvasButton">Export digital color preview</button>
-            
+            <div class="tooltip">
+              <span class="tooltiptext">Export a color preview image, useful to use as reference or to post online.</span>
+              <label for "downloadCanvasButton">Color export ⓘ:</label>
+            </div>
+            <button id="downloadCanvasButton">Export color preview</button>
           </div>
         </div>
       </div>
