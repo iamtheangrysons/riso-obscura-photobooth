@@ -261,6 +261,7 @@ function exportChannels() {
   pinkChannel.save('Color-1.png');
   yellowChannel.save('Color-2.png');
   blueChannel.save('Color-3.png');
+  saveCanvas('Color-Preview.png');
 }
 
 //------ function to export pink channel only --------
